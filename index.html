@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <div class="container-wrapper">
+      <img src="images/alarm clock.jpg" alt="alarm clock" />
+      <h1>05: 40: 33 AM</h1>
+      <div class="content">
+        <div class="column">
+          <select aria-label="select">
+            <option value="Hour" selected hidden>Hour</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+          </select>
+        </div>
+        <div class="column">
+          <select aria-label="select">
+            <option value="Minute" selected hidden>Minute</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+          </select>
+        </div>
+        <div class="column">
+          <select aria-label="select">
+            <option value="AM/PM" selected hidden>AM/PM</option>
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+      </div>
+      <button class="button">Set Alarm</button>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
