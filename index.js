@@ -1,7 +1,10 @@
 const selectMenu = document.querySelectorAll('select');
 const currentTime = document.querySelector('h1');
+const content = document.querySelector('.content');
 const setAlarmBtn = document.querySelector('button');
 
+let alarmTime;
+let time;
 for (let i = 12; i > 0; i--) {
   i = i < 10 ? `0${i}` : i;
   const option = `<option value="${i}">${i}</option>`;
@@ -18,6 +21,17 @@ for (let i = 2; i > 0; i--) {
   selectMenu[2].firstElementChild.insertAdjacentHTML('afterend', option);
 }
 
+const setAlarm = () => {
+  // getting hour, minute, ampm select tag value
+  time = ` ${selectMenu[0].value}: ${selectMenu[1].value} : ${selectMenu[2].value}`;
+  if (time.includes('Hour') || time.includes('Minute') || time.includes('AM/PM')) {
+    alert('Please,select a valid time to set alarm');
+  }
+
+  content.classList.add('disable');
+  setAlarmBtn.innerHTML = 'Clear Alarm';
+};
+
 setInterval(() => {
   // getting hour, mins, secs
   const date = new Date();
@@ -31,24 +45,18 @@ setInterval(() => {
     ampm = 'PM';
   }
   // if hour value is 0, set this value to 12
-  if (h === 0) {
-    h = 12;
-  }
+  h = h === 0 ? h = 12 : h;
   // adding 0 before hr, min, sec if thi value is less than 10
-  if (h < 10) {
-    h += '0';
-  } else if (m < 10) {
-    m += '0';
-  } else if (s < 10) {
-    s += '0';
-  }
+  h = h < 10 ? `0${h}` : h;
+  m = m < 10 ? `0${m}` : m;
+  s = s < 10 ? `0${s}` : s;
   // getting current time in digital
   currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
+  alarmTime = time;
+  if (alarmTime === `${h}:${m} ${ampm}`) {
+    alert('alarm ringing');
+  }
 }, 1000);
 
-function setAlarm() {
-  // getting hour, minute, ampm select tag value
-  const time = ` ${selectMenu[0].value}: ${selectMenu[1].value} : ${selectMenu[2].value}`;
-  console.log(time);
-}
+
 setAlarmBtn.addEventListener('click', setAlarm);
