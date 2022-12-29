@@ -1,4 +1,6 @@
 const selectMenu = document.querySelectorAll('select');
+const currentTime = document.querySelector('h1');
+const setAlarmBtn = document.querySelector('button');
 
 for (let i = 12; i > 0; i--) {
   i = i < 10 ? `0${i}` : i;
@@ -40,5 +42,13 @@ setInterval(() => {
   } else if (s < 10) {
     s += '0';
   }
-  console.log(`${h}:${m}:${s} ${ampm}`);
+  // getting current time in digital
+  currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
 }, 1000);
+
+function setAlarm() {
+  // getting hour, minute, ampm select tag value
+  const time = ` ${selectMenu[0].value}: ${selectMenu[1].value} : ${selectMenu[2].value}`;
+  console.log(time);
+}
+setAlarmBtn.addEventListener('click', setAlarm);
