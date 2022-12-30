@@ -45,7 +45,7 @@ setInterval(() => {
     ampm = 'PM';
   }
   // if hour value is 0, set this value to 12
-  h = h === 0 ? h = 12 : h;
+  h = h === 0 ? (h = 12) : h;
   // adding 0 before hr, min, sec if thi value is less than 10
   h = h < 10 ? `0${h}` : h;
   m = m < 10 ? `0${m}` : m;
@@ -53,10 +53,11 @@ setInterval(() => {
   // getting current time in digital
   currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
   alarmTime = time;
-  if (alarmTime === `${h}:${m} ${ampm}`) {
-    alert('alarm ringing');
+  // getting exact time
+
+  if (alarmTime === ` ${h}: ${m} : ${ampm}`) {
+    console.log('alarm ringing');
   }
 }, 1000);
-
 
 setAlarmBtn.addEventListener('click', setAlarm);
