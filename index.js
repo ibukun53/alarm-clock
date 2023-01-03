@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 const selectMenu = document.querySelectorAll('select');
 const currentTime = document.querySelector('h1');
 const content = document.querySelector('.content');
@@ -53,24 +55,30 @@ setInterval(() => {
     console.log('alarm ringing');
   }
 }, 1000);
-const setAlarm = () => {
+function setAlarm() {
   if (isAlarmSet) { // isAlarmSet is true
-    alarmTime = ''; //
-    ringtone.pause();
     content.classList.remove('disable');
     setAlarmBtn.innerHTML = 'Set Alarm';
+    alarmTime = ''; //
+    ringtone.pause();//
+    ringtone.pause();
+    console.log(ringtone.pause());
     // return isAlarmSet value to false
-    const set = isAlarmSet = false;
-    return set;
+    const alarmSetFalse = isAlarmSet = false;
+    return alarmSetFalse;
   }
   // getting hour, minute, ampm select tag value
   time = ` ${selectMenu[0].value}: ${selectMenu[1].value} : ${selectMenu[2].value}`;
   if (time.includes('Hour') || time.includes('Minute') || time.includes('AM/PM')) {
     alert('Please,select a valid time to set alarm');
   }
-  isAlarmSet = true;
+
+
+  alarmTime = time;
   content.classList.add('disable');
   setAlarmBtn.innerHTML = 'Clear Alarm';
-};
+  const alarmSetTrue = isAlarmSet = true;
+  return alarmSetTrue;
+}
 
 setAlarmBtn.addEventListener('click', setAlarm);

@@ -3,19 +3,20 @@ body {
   height: 300px;
 }
 
-.container-wrapper body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
-
 .container-wrapper {
   width: 400px;
   background-color: #fff;
   flex-direction: column;
   border-radius: 10px;
   padding: 30px 30px 30px;
+  text-align: center;
+}
+
+body .container-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .container-wrapper h1 {
@@ -39,6 +40,7 @@ body {
   border-radius: 5px;
   border: 1px solid #999;
   padding: 0 10px;
+  background-color: green;
   width: calc(100% / 3 - 5px);
 }
 
@@ -56,8 +58,9 @@ body {
   border: none;
   cursor: pointer;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 40px;
   background-color: green;
   padding: 17px 0;
+  color: #fff;
   border-radius: 5px;
 }
