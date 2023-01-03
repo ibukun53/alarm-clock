@@ -1,9 +1,7 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
 const selectMenu = document.querySelectorAll('select');
 const currentTime = document.querySelector('h1');
 const content = document.querySelector('.content');
-const setAlarmBtn = document.querySelector('button');
+const setAlarmBtn = document.querySelector('.button');
 
 let alarmTime;
 let isAlarmSet = false;
@@ -46,7 +44,6 @@ setInterval(() => {
   s = s < 10 ? `0${s}` : s;
   // getting current time in digital
   currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
-  alarmTime = time;
   // getting exact time
 
   if (alarmTime === ` ${h}: ${m} : ${ampm}`) {
@@ -55,14 +52,13 @@ setInterval(() => {
     console.log('alarm ringing');
   }
 }, 1000);
+
 function setAlarm() {
   if (isAlarmSet) { // isAlarmSet is true
     content.classList.remove('disable');
     setAlarmBtn.innerHTML = 'Set Alarm';
     alarmTime = ''; //
     ringtone.pause();//
-    ringtone.pause();
-    console.log(ringtone.pause());
     // return isAlarmSet value to false
     const alarmSetFalse = isAlarmSet = false;
     return alarmSetFalse;
