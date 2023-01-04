@@ -6,7 +6,7 @@ const setAlarmBtn = document.querySelector('.button');
 let alarmTime;
 let isAlarmSet = false;
 let time;
-const ringtone = new Audio('file/alarm clock.mp3');
+const ringtone = document.getElementById('ringtone');
 for (let i = 12; i > 0; i--) {
   i = i < 10 ? `0${i}` : i;
   const option = `<option value="${i}">${i}</option>`;
